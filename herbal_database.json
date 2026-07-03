@@ -1,0 +1,747 @@
+{
+  "0": {
+    "herb": "Allium cepa (Onion)",
+    "local_name": "Pyaaz",
+    "urdu_name": "پیاز",
+    "disease_type": "Hair Care / Respiratory",
+    "recipe": "Extract juice from fresh onion and apply directly to the scalp, or mix with honey for a cough.",
+    "recipe_ur": "تازہ پیاز کا رس نکال کر سیدھا کھوپڑی پر لگائیں، یا کھانسی کے لیے شہد کے ساتھ ملائیں۔",
+    "benefit": "Promotes hair growth, reduces dandruff, and helps soothe respiratory tracks.",
+    "benefit_ur": "بالوں کی نشوونما کو فروغ دیتا ہے، خشکی کم کرتا ہے اور سانس کی نالی کو سکون دیتا ہے۔",
+    "tags": [
+      "hair loss",
+      "dandruff",
+      "scalp",
+      "cough",
+      "hair fall"
+    ]
+  },
+  "1": {
+    "herb": "Aloe barbadensis miller (Aloevera)",
+    "local_name": "Gwarpatha / Aloe Vera",
+    "urdu_name": "گوارپاٹھا",
+    "disease_type": "Skin / Dermatological",
+    "recipe": "Extract fresh gel from the leaf and apply smoothly on burns, cuts, or dry skin surfaces.",
+    "recipe_ur": "پتے سے تازہ جیل نکالیں اور جلن، کٹ یا خشک جلد پر لگائیں۔",
+    "benefit": "Cools down sunburns, hydrates skin cells, and accelerates wound healing processes.",
+    "benefit_ur": "دھوپ کی جلن کو ٹھنڈا کرتا ہے، جلد کو نمی دیتا ہے اور زخم بھرنے میں مدد کرتا ہے۔",
+    "tags": [
+      "burn",
+      "sunburn",
+      "dry skin",
+      "cut",
+      "wound"
+    ]
+  },
+  "2": {
+    "herb": "Alpinia Galanga (Rasna)",
+    "local_name": "Kulinjan / Kulanjan",
+    "urdu_name": "کلنجن",
+    "disease_type": "Joint Pain / Inflammation",
+    "recipe": "Boil dried root powder in water to make a herbal tea, drink once daily.",
+    "recipe_ur": "خشک جڑ کا پاؤڈر پانی میں ابالیں اور دن میں ایک بار پئیں۔",
+    "benefit": "Relieves rheumatoid arthritis pain and reduces internal body inflammation.",
+    "benefit_ur": "گٹھیا کے درد کو دور کرتا ہے اور جسم کی اندرونی سوزش کم کرتا ہے۔",
+    "tags": [
+      "joint pain",
+      "arthritis",
+      "inflammation",
+      "rheumatoid"
+    ]
+  },
+  "3": {
+    "herb": "Amaranthus Viridis (Arive-Dantu)",
+    "local_name": "Cholai / Green Amaranth",
+    "urdu_name": "چولائی",
+    "disease_type": "Digestive / Nutritional Deficiencies",
+    "recipe": "Cook clean leaves as a vegetable side dish or steam them lightly to preserve nutrients.",
+    "recipe_ur": "صاف پتوں کو سبزی کے طور پر پکائیں یا غذائیت بچانے کے لیے ہلکا بھاپ دیں۔",
+    "benefit": "Rich in iron and vitamins, improves digestion, and boosts blood hemoglobin levels.",
+    "benefit_ur": "آئرن اور وٹامنز سے بھرپور، ہاضمہ بہتر کرتا ہے اور خون میں ہیموگلوبن بڑھاتا ہے۔",
+    "tags": [
+      "iron deficiency",
+      "anemia",
+      "hemoglobin",
+      "digestion"
+    ]
+  },
+  "4": {
+    "herb": "Andrographis paniculata (Nelavembu)",
+    "local_name": "Kalmegh / Kiryat",
+    "urdu_name": "کالمیگھ",
+    "disease_type": "Viral Fever / Immunity",
+    "recipe": "Boil the dried leaves in water until reduced to half, drink a small cup during fevers.",
+    "recipe_ur": "خشک پتوں کو پانی میں تب تک ابالیں جب تک نصف نہ رہ جائے، بخار میں چھوٹا کپ پئیں۔",
+    "benefit": "Strong antiviral herb, purifies blood, and controls dengue or malaria fevers.",
+    "benefit_ur": "طاقتور اینٹی وائرل جڑی بوٹی، خون صاف کرتی ہے اور ڈینگی یا ملیریا بخار کنٹرول کرتی ہے۔",
+    "tags": [
+      "fever",
+      "malaria",
+      "dengue",
+      "viral",
+      "immune boost"
+    ]
+  },
+  "5": {
+    "herb": "Annona squamosa (Seethapala)",
+    "local_name": "Sharifa / Custard Apple",
+    "urdu_name": "شریفہ",
+    "disease_type": "Wound Healing / Tonic",
+    "recipe": "Crush fresh clean leaves into a smooth paste and apply over skin ulcers or boils.",
+    "recipe_ur": "تازہ پتوں کو پیس کر ہموار پیسٹ بنائیں اور جلد کے زخموں یا پھوڑوں پر لگائیں۔",
+    "benefit": "Contains antidiabetic properties and destroys harmful bacteria on skin wounds.",
+    "benefit_ur": "ذیابیطس مخالف خصوصیات رکھتا ہے اور جلد کے زخموں پر نقصاندہ بیکٹیریا ختم کرتا ہے۔",
+    "tags": [
+      "wound healing",
+      "skin ulcer",
+      "boil",
+      "antibacterial"
+    ]
+  },
+  "6": {
+    "herb": "Artocarpus heterophyllus (Jackfruit)",
+    "local_name": "Kathal",
+    "urdu_name": "کٹہل",
+    "disease_type": "Digestive / Antioxidant",
+    "recipe": "Consume fresh fruit slices or boil young leaves in water for an immunizing drink.",
+    "recipe_ur": "تازہ پھل کھائیں یا نوجوان پتوں کو پانی میں ابالیں۔",
+    "benefit": "Boosts immune system, improves bowel movements, and provides rich antioxidants.",
+    "benefit_ur": "مدافعتی نظام مضبوط کرتا ہے، آنتوں کی حرکت بہتر کرتا ہے اور اینٹی آکسیڈنٹ فراہم کرتا ہے۔",
+    "tags": [
+      "immune system",
+      "bowel",
+      "antioxidant",
+      "gut health"
+    ]
+  },
+  "7": {
+    "herb": "Azadirachta indica (Neem)",
+    "local_name": "Neem",
+    "urdu_name": "نیم",
+    "disease_type": "Skin Diseases / Blood Purifier",
+    "recipe": "Boil fresh neem leaves in bathing water or grind into a paste for severe acne.",
+    "recipe_ur": "تازہ نیم کے پتوں کو نہانے کے پانی میں ابالیں یا شدید مہاسوں کے لیے پیسٹ بنائیں۔",
+    "benefit": "Powerful antifungal and antibacterial agent, cures chronic skin allergies and acne.",
+    "benefit_ur": "طاقتور اینٹی فنگل اور اینٹی بیکٹیریل، دائمی جلدی الرجی اور مہاسے ٹھیک کرتا ہے۔",
+    "tags": [
+      "acne",
+      "pimple",
+      "fungal infection",
+      "skin allergy",
+      "blood purifier"
+    ]
+  },
+  "8": {
+    "herb": "Bacopa monnieri (Bhrami)",
+    "local_name": "Brahmi",
+    "urdu_name": "برہمی",
+    "disease_type": "Brain Tonic / Memory Booster",
+    "recipe": "Infuse fresh leaves in warm milk or consume half a teaspoon of dried juice extract.",
+    "recipe_ur": "تازہ پتوں کو گرم دودھ میں ڈالیں یا خشک رس کا آدھا چمچ استعمال کریں۔",
+    "benefit": "Enhances cognitive functions, sharpens memory recall, and reduces mental stress.",
+    "benefit_ur": "ذہنی صلاحیت بڑھاتا ہے، یادداشت تیز کرتا ہے اور ذہنی تناؤ کم کرتا ہے۔",
+    "tags": [
+      "memory",
+      "brain tonic",
+      "stress",
+      "cognitive",
+      "focus"
+    ]
+  },
+  "9": {
+    "herb": "Bambusa vulgaris (Bamboo)",
+    "local_name": "Bans",
+    "urdu_name": "بانس",
+    "disease_type": "Bone Health / Anti-inflammatory",
+    "recipe": "Boil tender young bamboo shoots or leaves in water to create a medicinal decoction.",
+    "recipe_ur": "نرم بانس کی کونپلیں یا پتے پانی میں ابالیں۔",
+    "benefit": "Rich in natural silica which strengthens bones, nails, and promotes flexible joints.",
+    "benefit_ur": "قدرتی سیلیکا سے بھرپور جو ہڈیاں، ناخن مضبوط کرتا اور جوڑوں کو لچکدار بناتا ہے۔",
+    "tags": [
+      "bone strength",
+      "silica",
+      "nail health",
+      "joint flexibility"
+    ]
+  },
+  "10": {
+    "herb": "Basella alba (Malabar Spinach)",
+    "local_name": "Pui Saag",
+    "urdu_name": "پوئی ساگ",
+    "disease_type": "Laxative / Ulcers",
+    "recipe": "Extract leaf juice and apply on mouth ulcers, or cook leaves as a daily fiber source.",
+    "recipe_ur": "پتوں کا رس نکالیں اور منہ کے زخموں پر لگائیں، یا روزانہ ریشے کے لیے پکائیں۔",
+    "benefit": "Relieves severe constipation and quickly cools down painful mouth ulcers.",
+    "benefit_ur": "شدید قبض دور کرتا ہے اور منہ کے تکلیف دہ زخموں کو ٹھنڈا کرتا ہے۔",
+    "tags": [
+      "constipation",
+      "mouth ulcer",
+      "laxative",
+      "fiber"
+    ]
+  },
+  "11": {
+    "herb": "Brassica Juncea (Indian Mustard)",
+    "local_name": "Sarson",
+    "urdu_name": "سرسوں",
+    "disease_type": "Muscle Pain / Respiratory",
+    "recipe": "Warm the extracted mustard seed oil and gently massage onto aching joints or chest.",
+    "recipe_ur": "سرسوں کا تیل گرم کریں اور درد والے جوڑوں یا سینے پر آہستہ مالش کریں۔",
+    "benefit": "Relieves cold congestion, improves blood circulation, and eases joint stiffness.",
+    "benefit_ur": "نزلے کی بندش دور کرتا ہے، خون کی گردش بہتر کرتا ہے اور جوڑوں کی اکڑن کم کرتا ہے۔",
+    "tags": [
+      "muscle pain",
+      "cold congestion",
+      "chest",
+      "circulation"
+    ]
+  },
+  "12": {
+    "herb": "Brassica oleracea (Kohlrabi)",
+    "local_name": "Ganth Gobhi",
+    "urdu_name": "گانٹھ گوبھی",
+    "disease_type": "Metabolic / Weight Management",
+    "recipe": "Slice the raw bulb into salads or steam gently as a low-calorie high-fiber meal.",
+    "recipe_ur": "کچی گانٹھ کو سلاد میں کاٹیں یا کم کیلوری زیادہ ریشے والے کھانے کے لیے بھاپ دیں۔",
+    "benefit": "Regulates blood sugar levels and improves overall cardiovascular endurance.",
+    "benefit_ur": "خون میں شکر کی سطح متوازن کرتا ہے اور دل کی کارکردگی بہتر کرتا ہے۔",
+    "tags": [
+      "blood sugar",
+      "weight management",
+      "metabolism",
+      "cardiovascular"
+    ]
+  },
+  "13": {
+    "herb": "Calotropis gigantea (Crown Flower)",
+    "local_name": "Aak / Madar",
+    "urdu_name": "آک",
+    "disease_type": "Severe Joint Pain (External Use Only)",
+    "recipe": "Warm the leaf, apply mustard oil on it, and tie tightly over swelling joints overnight.",
+    "recipe_ur": "پتہ گرم کریں، سرسوں کا تیل لگائیں اور رات بھر سوجن والے جوڑوں پر باندھیں۔",
+    "benefit": "Reduces chronic inflammation and severe localized pain rapidly.",
+    "benefit_ur": "دائمی سوزش اور شدید مقامی درد کو تیزی سے کم کرتا ہے۔",
+    "tags": [
+      "chronic pain",
+      "localized pain",
+      "external swelling",
+      "severe inflammation"
+    ]
+  },
+  "14": {
+    "herb": "Capsicum annuum (Chilly)",
+    "local_name": "Mirch",
+    "urdu_name": "مرچ",
+    "disease_type": "Pain Relief / Metabolism",
+    "recipe": "Use highly diluted capsaicin extracts topically on aching muscles (avoid eyes).",
+    "recipe_ur": "بہت پتلا کیا ہوا کیپسیسن عرق درد والے پٹھوں پر لگائیں (آنکھوں سے دور رکھیں)۔",
+    "benefit": "Triggers rapid pain relief mechanisms and stimulates digestive heat.",
+    "benefit_ur": "تیز درد سے نجات فراہم کرتا ہے اور ہضم کی گرمی کو متحرک کرتا ہے۔",
+    "tags": [
+      "pain relief",
+      "topical pain",
+      "capsaicin",
+      "metabolism"
+    ]
+  },
+  "15": {
+    "herb": "Cardiospermum halicacabum (Balloon Vine)",
+    "local_name": "Kanphuti",
+    "urdu_name": "کان پھوٹی",
+    "disease_type": "Nerve Disorders / Joint Pain",
+    "recipe": "Fry fresh leaves in gingelly oil and apply the lukewarm mixture over painful joints.",
+    "recipe_ur": "تازہ پتوں کو تل کے تیل میں بھونیں اور گنگنا مرکب درد والے جوڑوں پر لگائیں۔",
+    "benefit": "Highly effective for treating sciatica, lower back pain, and stiff limbs.",
+    "benefit_ur": "سائیٹیکا، کمر کے نچلے درد اور اکڑے ہوئے اعضاء کے علاج میں انتہائی موثر۔",
+    "tags": [
+      "sciatica",
+      "back pain",
+      "nerve pain",
+      "lower back",
+      "limb stiffness"
+    ]
+  },
+  "16": {
+    "herb": "Carica papaya (Papaya)",
+    "local_name": "Papita",
+    "urdu_name": "پپیتا",
+    "disease_type": "Platelet Count / Digestion",
+    "recipe": "Crush fresh green papaya leaves to extract juice; drink 1-2 spoons during dengue.",
+    "recipe_ur": "تازہ کچے پپیتے کے پتوں کو پیس کر رس نکالیں؛ ڈینگی میں 1-2 چمچ پئیں۔",
+    "benefit": "Rapidly multiplies blood platelet counts and cures severe stomach indigestion.",
+    "benefit_ur": "خون کے پلیٹلیٹس تیزی سے بڑھاتا ہے اور شدید بدہضمی ٹھیک کرتا ہے۔",
+    "tags": [
+      "platelet",
+      "dengue fever",
+      "stomach",
+      "indigestion"
+    ]
+  },
+  "17": {
+    "herb": "Carissa Carandas (Karanda)",
+    "local_name": "Karonda",
+    "urdu_name": "کروندہ",
+    "disease_type": "Anemia / Digestion",
+    "recipe": "Eat raw fruits or drink fresh juice with a pinch of salt to balance stomach acids.",
+    "recipe_ur": "کچے پھل کھائیں یا معدے کے تیزاب کو متوازن کرنے کے لیے چٹکی نمک کے ساتھ تازہ رس پئیں۔",
+    "benefit": "Rich source of iron which treats anemia and helps regulate high blood pressure.",
+    "benefit_ur": "آئرن کا بھرپور ذریعہ جو خون کی کمی ٹھیک کرتا اور ہائی بلڈ پریشر کنٹرول کرتا ہے۔",
+    "tags": [
+      "anemia",
+      "iron deficiency",
+      "blood pressure",
+      "acidity"
+    ]
+  },
+  "18": {
+    "herb": "Catharanthus roseus (Catharanthus)",
+    "local_name": "SadaBahar",
+    "urdu_name": "سدا بہار",
+    "disease_type": "Diabetes Management",
+    "recipe": "Boil 4-5 clean pink or white flowers in water, strain and drink early morning.",
+    "recipe_ur": "4-5 صاف گلابی یا سفید پھول پانی میں ابالیں، چھان کر صبح سویرے پئیں۔",
+    "benefit": "Helps control erratic blood glucose levels naturally.",
+    "benefit_ur": "قدرتی طور پر خون میں گلوکوز کی بے ترتیب سطح کنٹرول کرتا ہے۔",
+    "tags": [
+      "blood glucose",
+      "glucose control",
+      "diabetes flower",
+      "sugar management"
+    ]
+  },
+  "19": {
+    "herb": "Chamaecostus cuspidatus (Insulin Plant)",
+    "local_name": "Insulin Plant",
+    "urdu_name": "انسولین پلانٹ",
+    "disease_type": "Diabetes Control",
+    "recipe": "Chew one fresh clean leaf thoroughly every single morning on an empty stomach.",
+    "recipe_ur": "ہر صبح خالی پیٹ ایک تازہ صاف پتہ اچھی طرح چبائیں۔",
+    "benefit": "Proven to effectively lower blood sugar spikes in diabetic patients.",
+    "benefit_ur": "ذیابیطس کے مریضوں میں خون کی شکر کی اچانک بڑھوتری کم کرنے میں ثابت شدہ موثر۔",
+    "tags": [
+      "diabetes",
+      "insulin",
+      "blood sugar",
+      "sugar control",
+      "diabetic"
+    ]
+  },
+  "20": {
+    "herb": "Cinnamomum camphora (Camphor)",
+    "local_name": "Kafoor",
+    "urdu_name": "کافور",
+    "disease_type": "Muscle Cramps / Congestion",
+    "recipe": "Dissolve a tiny amount in coconut oil and rub on chest or sprained joints.",
+    "recipe_ur": "تھوڑی سی مقدار ناریل کے تیل میں گھولیں اور سینے یا موچ والے جوڑوں پر ملیں۔",
+    "benefit": "Relieves deep muscle spasms, controls pain, and clears nasal passages.",
+    "benefit_ur": "گہرے پٹھوں کے کھنچاؤ دور کرتا ہے، درد کنٹرول کرتا ہے اور ناک کی نالی صاف کرتا ہے۔",
+    "tags": [
+      "muscle cramp",
+      "spasm",
+      "nasal congestion",
+      "blocked nose",
+      "sprain"
+    ]
+  },
+  "21": {
+    "herb": "Citrus limon (Lemon)",
+    "local_name": "Limbu / Nimbu",
+    "urdu_name": "لیموں",
+    "disease_type": "Immunity / Detoxification",
+    "recipe": "Squeeze fresh juice into lukewarm water, drink in the morning for cleansing.",
+    "recipe_ur": "گنگنے پانی میں تازہ رس نچوڑیں اور صفائی کے لیے صبح پئیں۔",
+    "benefit": "High Vitamin C content boosts immunity, aids weight loss, and cleanses the liver.",
+    "benefit_ur": "وٹامن سی کی زیادہ مقدار قوت مدافعت بڑھاتی ہے، وزن کم کرنے میں مدد اور جگر صاف کرتی ہے۔",
+    "tags": [
+      "vitamin c",
+      "immunity",
+      "detox",
+      "liver cleanse",
+      "weight loss"
+    ]
+  },
+  "22": {
+    "herb": "Citrus medica (Citron)",
+    "local_name": "Turanj / Citron",
+    "urdu_name": "ترنج",
+    "disease_type": "Acidity / Nausea",
+    "recipe": "Consume a spoonful of fruit rind syrup or diluted juice during severe vomiting sensation.",
+    "recipe_ur": "شدید متلی کے وقت ایک چمچ پھل کے چھلکے کا شربت یا پتلا رس پئیں۔",
+    "benefit": "Instantly controls acid reflux, motion sickness, and abdominal gas bloating.",
+    "benefit_ur": "تیزابیت، سفری متلی اور پیٹ کی گیس فوری کنٹرول کرتا ہے۔",
+    "tags": [
+      "acidity",
+      "nausea",
+      "vomiting",
+      "acid reflux",
+      "gas",
+      "bloating"
+    ]
+  },
+  "23": {
+    "herb": "Coffea arabica (Coffee)",
+    "local_name": "Coffee",
+    "urdu_name": "کافی",
+    "disease_type": "Central Nervous System / Migraine",
+    "recipe": "Brew roasted coffee beans in hot water, drink without sugar for sudden headache relief.",
+    "recipe_ur": "بھنے ہوئے کافی کے دانے گرم پانی میں بنائیں، اچانک سر درد کے لیے بغیر چینی پئیں۔",
+    "benefit": "Stimulates brain alertness, enhances focus, and temporarily constricts migraine vessels.",
+    "benefit_ur": "دماغ کو چوکنا کرتا ہے، توجہ بڑھاتا ہے اور عارضی طور پر درد شقیقہ کی رگیں سکیڑتا ہے۔",
+    "tags": [
+      "headache",
+      "migraine",
+      "head pain",
+      "alertness",
+      "focus"
+    ]
+  },
+  "24": {
+    "herb": "Coleus amboinicus (Mexican Mint)",
+    "local_name": "Patharchur / Ajwain Leaves",
+    "urdu_name": "پتھر چور",
+    "disease_type": "Kidney Stones / Asthma",
+    "recipe": "Extract fresh juice from thick leaves, mix with honey and take for chronic wheezing.",
+    "recipe_ur": "موٹے پتوں سے تازہ رس نکالیں، شہد ملائیں اور دائمی سانس کی تنگی کے لیے لیں۔",
+    "benefit": "Helps break down small kidney stones and clears thick phlegm from lungs.",
+    "benefit_ur": "چھوٹی گردے کی پتھری توڑنے اور پھیپھڑوں سے گاڑھا بلغم صاف کرنے میں مدد کرتا ہے۔",
+    "tags": [
+      "kidney stone",
+      "asthma",
+      "wheezing",
+      "phlegm",
+      "lung",
+      "breathing"
+    ]
+  },
+  "25": {
+    "herb": "Colocasia esculenta (Taro)",
+    "local_name": "Arbi",
+    "urdu_name": "اربی",
+    "disease_type": "Digestive Health / Blood Pressure",
+    "recipe": "Cook well-boiled roots with spices; never consume raw due to calcium oxalate content.",
+    "recipe_ur": "اچھی طرح ابلی ہوئی جڑوں کو مصالحوں سے پکائیں؛ کیلشیم آکسالیٹ کی وجہ سے کچا نہ کھائیں۔",
+    "benefit": "Provides high dietary fiber for smooth gut transitions and regulates blood pressure.",
+    "benefit_ur": "آنتوں کی ہموار حرکت کے لیے زیادہ غذائی ریشہ فراہم کرتا اور بلڈ پریشر متوازن کرتا ہے۔",
+    "tags": [
+      "dietary fiber",
+      "gut health",
+      "blood pressure",
+      "digestion"
+    ]
+  },
+  "26": {
+    "herb": "Coriandrum sativum (Coriander)",
+    "local_name": "Dhania",
+    "urdu_name": "دھنیا",
+    "disease_type": "Cooling / Digestion",
+    "recipe": "Soak crushed coriander seeds overnight in water, filter and drink next morning.",
+    "recipe_ur": "پسے ہوئے دھنیے کے بیج رات بھر پانی میں بھگوئیں، چھان کر اگلی صبح پئیں۔",
+    "benefit": "Reduces internal body heat, controls burning urination, and improves nutrient absorption.",
+    "benefit_ur": "جسم کی اندرونی گرمی کم کرتا ہے، پیشاب کی جلن کنٹرول کرتا اور غذائیت جذب بہتر کرتا ہے۔",
+    "tags": [
+      "body heat",
+      "burning urine",
+      "cooling",
+      "nutrient absorption"
+    ]
+  },
+  "27": {
+    "herb": "Cucurbita (Pumpkin)",
+    "local_name": "Kaddu",
+    "urdu_name": "کدو",
+    "disease_type": "Prostate / Intestinal Worms",
+    "recipe": "Dry the seeds and consume a handful daily, or make fresh cooked pumpkin soup.",
+    "recipe_ur": "بیج خشک کریں اور روزانہ ایک مٹھی کھائیں، یا تازہ کدو کا سوپ بنائیں۔",
+    "benefit": "Seeds help treat urinary tract disorders and naturally expel intestinal parasites.",
+    "benefit_ur": "بیج پیشاب کی نالی کے امراض میں مدد کرتے اور آنتوں کے کیڑے قدرتی طور پر نکالتے ہیں۔",
+    "tags": [
+      "prostate",
+      "intestinal worms",
+      "parasites",
+      "urinary tract",
+      "UTI"
+    ]
+  },
+  "28": {
+    "herb": "Curcuma longa (Turmeric)",
+    "local_name": "Haldi",
+    "urdu_name": "ہلدی",
+    "disease_type": "Natural Antibiotic / Healing",
+    "recipe": "Mix half a spoon of pure turmeric in hot milk; drink before sleeping.",
+    "recipe_ur": "آدھا چمچ خالص ہلدی گرم دودھ میں ملائیں؛ سونے سے پہلے پئیں۔",
+    "benefit": "Powerful anti-inflammatory, heals internal injuries, and keeps skin glowing.",
+    "benefit_ur": "طاقتور سوزش مخالف، اندرونی زخم بھرتا ہے اور جلد کو چمکدار رکھتا ہے۔",
+    "tags": [
+      "turmeric",
+      "golden milk",
+      "anti-inflammatory",
+      "healing",
+      "skin glow"
+    ]
+  },
+  "29": {
+    "herb": "Cymbopogon (Lemongrass)",
+    "local_name": "Lemongrass",
+    "urdu_name": "لیمن گراس",
+    "disease_type": "Detox / Stress Relief",
+    "recipe": "Boil fresh green blades in water with a drop of lemon juice to enjoy a calming tea.",
+    "recipe_ur": "تازہ سبز پتے پانی میں لیموں کے رس کے ساتھ ابالیں اور سکون بخش چائے پئیں۔",
+    "benefit": "Calms anxious nerves, induces restful sleep, and acts as a natural diuretic.",
+    "benefit_ur": "پریشان اعصاب کو سکون دیتا ہے، آرام دہ نیند لاتا ہے اور قدرتی موترر کے طور پر کام کرتا ہے۔",
+    "tags": [
+      "stress relief",
+      "sleep",
+      "insomnia",
+      "detox",
+      "calm"
+    ]
+  },
+  "30": {
+    "herb": "Nerium oleander (Kaner)",
+    "local_name": "Kaner",
+    "urdu_name": "کنیر",
+    "disease_type": "Skin Ulcers (External Use Only)",
+    "recipe": "Boil leaves strictly in mustard oil, cool down, strain, and apply oil on old wounds.",
+    "recipe_ur": "پتوں کو صرف سرسوں کے تیل میں ابالیں، ٹھنڈا کریں، چھانیں اور پرانے زخموں پر تیل لگائیں۔",
+    "benefit": "Helps treat stubborn skin infections when applied externally with strict care.",
+    "benefit_ur": "بیرونی استعمال سے ضدی جلدی انفیکشن ٹھیک کرنے میں مدد کرتا ہے۔",
+    "tags": [
+      "skin ulcer",
+      "old wound",
+      "stubborn infection",
+      "external wound"
+    ]
+  },
+  "31": {
+    "herb": "Eclipta prostrata (Bhringraj)",
+    "local_name": "Bhringraj",
+    "urdu_name": "بھرنگراج",
+    "disease_type": "Hair Fall / Liver Health",
+    "recipe": "Infuse dried bhringraj powder into pure coconut oil, heat slowly, filter and apply to hair.",
+    "recipe_ur": "خشک بھرنگراج پاؤڈر خالص ناریل کے تیل میں ڈالیں، آہستہ گرم کریں، چھانیں اور بالوں پر لگائیں۔",
+    "benefit": "Prevents premature hair greying, reduces severe hair loss, and strengthens follicles.",
+    "benefit_ur": "قبل از وقت بالوں کی سفیدی روکتا ہے، شدید بال گرنا کم کرتا اور جڑوں کو مضبوط کرتا ہے۔",
+    "tags": [
+      "hair greying",
+      "grey hair",
+      "hair fall",
+      "liver health",
+      "hair tonic"
+    ]
+  },
+  "32": {
+    "herb": "Eucalyptus globulus Labill (Eucalyptus)",
+    "local_name": "Safeda",
+    "urdu_name": "سفیدہ",
+    "disease_type": "Respiratory System / Sinus",
+    "recipe": "Add 3-5 drops of pure oil into boiling water and inhale the steam under a towel.",
+    "recipe_ur": "3-5 قطرے خالص تیل ابلتے پانی میں ڈالیں اور تولیے کے نیچے بھاپ لیں۔",
+    "benefit": "Instantly unblocks nasal cavities, clears sinuses, and thins heavy chest mucus.",
+    "benefit_ur": "ناک کی نالیاں فوری کھولتا ہے، سائنس صاف کرتا ہے اور سینے کا گاڑھا بلغم پتلا کرتا ہے۔",
+    "tags": [
+      "sinus",
+      "blocked nose",
+      "mucus",
+      "chest mucus",
+      "steam",
+      "cold congestion"
+    ]
+  },
+  "33": {
+    "herb": "Euphorbia hirta (Asthma Weed)",
+    "local_name": "Dudhi / Asthma Weed",
+    "urdu_name": "دودھی",
+    "disease_type": "Bronchial Asthma / Dysentery",
+    "recipe": "Make a light water decoction of dry plant parts; drink in very small quantities.",
+    "recipe_ur": "خشک پودے کے حصوں کا ہلکا قہوہ بنائیں؛ بہت تھوڑی مقدار میں پئیں۔",
+    "benefit": "Relaxes the respiratory tract to alleviate acute shortness of breath and wheezing.",
+    "benefit_ur": "سانس کی نالی کو آرام دیتا ہے اور سانس کی شدید تنگی و گھرگھراہٹ کم کرتا ہے۔",
+    "tags": [
+      "shortness of breath",
+      "bronchial asthma",
+      "dysentery",
+      "wheeze"
+    ]
+  },
+  "34": {
+    "herb": "Ficus Auriculata (Roxburgh Fig)",
+    "local_name": "Tiba / Roxburgh Fig",
+    "urdu_name": "انجیر",
+    "disease_type": "Diarrhea / Cuts",
+    "recipe": "Apply the white milky latex topically on minor cuts, or eat ripe dried figs.",
+    "recipe_ur": "سفید دودھیا رس چھوٹے کٹوں پر لگائیں، یا پکے خشک انجیر کھائیں۔",
+    "benefit": "Acts as an effective astringent to stop superficial bleeding and controls diarrhea.",
+    "benefit_ur": "اوپری خون بند کرنے میں موثر قابض کے طور پر کام کرتا اور اسہال کنٹرول کرتا ہے۔",
+    "tags": [
+      "diarrhea",
+      "loose stool",
+      "bleeding cut",
+      "astringent",
+      "minor cut"
+    ]
+  },
+  "35": {
+    "herb": "Ficus Religiosa (Peepal Tree)",
+    "local_name": "Peepal",
+    "urdu_name": "پیپل",
+    "disease_type": "Blood Purification / Asthma",
+    "recipe": "Dry bark powder can be mixed with water or leaves chewed for persistent cough.",
+    "recipe_ur": "خشک چھال کا پاؤڈر پانی میں ملائیں یا دائمی کھانسی کے لیے پتے چبائیں۔",
+    "benefit": "Purifies blood streams, cleanses skin ulcers, and controls heavy asthmatic episodes.",
+    "benefit_ur": "خون صاف کرتا ہے، جلد کے زخم صاف کرتا اور دمے کے شدید دورے کنٹرول کرتا ہے۔",
+    "tags": [
+      "blood purification",
+      "asthma",
+      "persistent cough",
+      "skin cleanse"
+    ]
+  },
+  "36": {
+    "herb": "Gomphrena globosa (Globe Amaranth)",
+    "local_name": "Gul-e-Makhmal",
+    "urdu_name": "گلِ مخمل",
+    "disease_type": "Cough / Urinary Tract Infection",
+    "recipe": "Boil dried purple flower heads in water to prepare an organic herbal tea.",
+    "recipe_ur": "خشک جامنی پھولوں کو پانی میں ابالیں اور نامیاتی جڑی بوٹیوں کی چائے بنائیں۔",
+    "benefit": "Reduces high blood pressure and calms down chronic painful coughs.",
+    "benefit_ur": "ہائی بلڈ پریشر کم کرتا ہے اور دائمی تکلیف دہ کھانسی کو سکون دیتا ہے۔",
+    "tags": [
+      "cough",
+      "urinary tract infection",
+      "UTI",
+      "high blood pressure",
+      "chronic cough"
+    ]
+  },
+  "37": {
+    "herb": "Graptophyllum pictum (Caricature Plant)",
+    "local_name": "Caricature Plant",
+    "urdu_name": "کیریکیچر پلانٹ",
+    "disease_type": "Piles / Hemorrhoids",
+    "recipe": "Grind fresh clean leaves into a soft paste and apply externally over painful hemorrhoid swellings.",
+    "recipe_ur": "تازہ صاف پتوں کو نرم پیسٹ میں پیسیں اور بواسیر کی تکلیف دہ سوجن پر بیرونی طور پر لگائیں۔",
+    "benefit": "Reduces localized inflammation, pain, and softens hardened tissues naturally.",
+    "benefit_ur": "مقامی سوزش اور درد کم کرتا ہے اور سخت ٹشوز کو قدرتی طور پر نرم کرتا ہے۔",
+    "tags": [
+      "piles",
+      "hemorrhoids",
+      "rectal pain",
+      "swollen tissue"
+    ]
+  },
+  "38": {
+    "herb": "Hibiscus rosa-sinensis (Hibiscus)",
+    "local_name": "Gudhal / Hibiscus",
+    "urdu_name": "گڑہل",
+    "disease_type": "Hair Growth / Heart Health",
+    "recipe": "Boil flowers in coconut oil to create hair tonic, or brew petals as a tart tea.",
+    "recipe_ur": "پھولوں کو ناریل کے تیل میں ابالیں اور بالوں کا ٹانک بنائیں، یا پتیوں کی کھٹی چائے بنائیں۔",
+    "benefit": "Controls severe hair thinning, balances high blood pressure, and lowers bad cholesterol.",
+    "benefit_ur": "شدید بالوں کا پتلا پن کنٹرول کرتا ہے، ہائی بلڈ پریشر متوازن اور برا کولیسٹرول کم کرتا ہے۔",
+    "tags": [
+      "hair thinning",
+      "hair growth",
+      "cholesterol",
+      "heart health"
+    ]
+  },
+  "39": {
+    "herb": "Hymenaea courbaril (Jatoba)",
+    "local_name": "Jatoba / Chakte",
+    "urdu_name": "جاٹوبا",
+    "disease_type": "Energy / Fungal Infections",
+    "recipe": "Boil bark pieces in water to extract natural defense chemicals, drink as tonic.",
+    "recipe_ur": "چھال کے ٹکڑے پانی میں ابالیں، قدرتی دفاعی مرکبات نکالیں اور ٹانک کے طور پر پئیں۔",
+    "benefit": "Fights systemic fungal infections and helps recovery from chronic fatigue.",
+    "benefit_ur": "نظامی فنگل انفیکشن سے لڑتا ہے اور دائمی تھکاوٹ سے صحت یابی میں مدد کرتا ہے۔",
+    "tags": [
+      "fatigue",
+      "chronic fatigue",
+      "fungal infection",
+      "energy tonic"
+    ]
+  },
+  "40": {
+    "herb": "Ixora coccinea (Jungle Geranium)",
+    "local_name": "Rugmini / Ixora",
+    "urdu_name": "رگمنی",
+    "disease_type": "Dysentery / Skin Eruptions",
+    "recipe": "Boil clean red flowers in water, strain well, use it to wash eczemic skin surfaces.",
+    "recipe_ur": "صاف سرخ پھول پانی میں ابالیں، اچھی طرح چھانیں اور ایگزیما والی جلد دھونے کے لیے استعمال کریں۔",
+    "benefit": "Cures painful blood dysentery and controls infectious skin rashes efficiently.",
+    "benefit_ur": "تکلیف دہ خونی پیچش ٹھیک کرتا اور متعدی جلدی دانوں کو موثر طریقے سے کنٹرول کرتا ہے۔",
+    "tags": [
+      "blood dysentery",
+      "eczema",
+      "skin rash",
+      "dysentery"
+    ]
+  },
+  "41": {
+    "herb": "Jasminum (Jasmine)",
+    "local_name": "Chambeli / Yasmin",
+    "urdu_name": "چنبیلی",
+    "disease_type": "Anxiety / Skin Care",
+    "recipe": "Steep white flower petals in hot green tea water, or apply diluted jasmine oil to skin.",
+    "recipe_ur": "سفید پھولوں کی پتیاں گرم گرین ٹی پانی میں ڈالیں، یا پتلا چنبیلی کا تیل جلد پر لگائیں۔",
+    "benefit": "Soothes stressed mental faculties, improves mood, and clears basic skin blemishes.",
+    "benefit_ur": "تناؤ زدہ ذہن کو سکون دیتا ہے، مزاج بہتر کرتا ہے اور جلد کے بنیادی داغ صاف کرتا ہے۔",
+    "tags": [
+      "anxiety",
+      "mood",
+      "skin blemish",
+      "mental calm",
+      "stress relief"
+    ]
+  },
+  "42": {
+    "herb": "Justicia adhatoda (Malabar Nut)",
+    "local_name": "Adusa / Arusha",
+    "urdu_name": "اڈوسہ",
+    "disease_type": "Severe Chronic Cough / Bronchitis",
+    "recipe": "Extract juice from warmed leaves, mix with 1 spoon honey, take twice a day.",
+    "recipe_ur": "گرم پتوں سے رس نکالیں، 1 چمچ شہد ملائیں اور دن میں دو بار لیں۔",
+    "benefit": "Strong natural expectorant, widens airways, and liquefies dry stubborn phlegm.",
+    "benefit_ur": "طاقتور قدرتی بلغم نکالنے والا، ہوائی نالیاں کھولتا اور خشک ضدی بلغم پتلا کرتا ہے۔",
+    "tags": [
+      "bronchitis",
+      "expectorant",
+      "dry phlegm",
+      "airway",
+      "persistent cough"
+    ]
+  },
+  "43": {
+    "herb": "Lantana camara (Lantana)",
+    "local_name": "Ghaneri / Lantana",
+    "urdu_name": "گھنیری",
+    "disease_type": "Antiseptic Wound Wash (External Only)",
+    "recipe": "Boil clean leaves in water, use the strained water to wash infected wounds.",
+    "recipe_ur": "صاف پتے پانی میں ابالیں، چھنا ہوا پانی متاثرہ زخم دھونے کے لیے استعمال کریں۔",
+    "benefit": "Fights surface bacteria and stops minor chronic infections on skin cells.",
+    "benefit_ur": "اوپری بیکٹیریا سے لڑتا ہے اور جلد کے خلیوں پر معمولی دائمی انفیکشن روکتا ہے۔",
+    "tags": [
+      "antiseptic",
+      "infected wound",
+      "wound wash",
+      "surface bacteria"
+    ]
+  },
+  "44": {
+    "herb": "Lawsonia inermis (Henna)",
+    "local_name": "Mehendi",
+    "urdu_name": "مہندی",
+    "disease_type": "Cooling Agent / Burn Soothing",
+    "recipe": "Grind dried leaves into fine powder, mix with water or tea water to make paste, apply to hair or skin.",
+    "recipe_ur": "خشک پتوں کو باریک پاؤڈر میں پیسیں، پانی یا چائے کے پانی سے پیسٹ بنائیں اور بالوں یا جلد پر لگائیں۔",
+    "benefit": "Acts as a powerful natural coolant, treats burning feet syndrome, and conditions hair roots.",
+    "benefit_ur": "طاقتور قدرتی ٹھنڈک دیتا ہے، پاؤں کی جلن ٹھیک کرتا اور بالوں کی جڑوں کو کنڈیشن کرتا ہے۔",
+    "tags": [
+      "henna",
+      "cooling",
+      "burning feet",
+      "hair conditioning",
+      "coolant"
+    ]
+  }
+}

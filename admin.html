@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Herbal Guy AI — Admin Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        :root{
+            --forest:#1a3a2a; --leaf:#2d6a4f; --mint:#52b788; --sage:#95d5b2;
+            --cream:#f8f5ee; --parchment:#efe9da; --ink:#1c2319; --muted:#6b7c6e;
+            --white:#fff; --gold:#c9a84c;
+            --shadow:0 4px 20px rgba(26,58,42,.08);
+        }
+        *{box-sizing:border-box;margin:0;padding:0}
+        body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--ink);padding:24px}
+        .wrap{max-width:1000px;margin:0 auto}
+        h1{font-family:'Playfair Display',serif;color:var(--forest);font-size:1.9rem;margin-bottom:4px}
+        .subtitle{color:var(--muted);font-size:.9rem;margin-bottom:28px}
+        .status-row{display:flex;gap:12px;margin-bottom:28px;flex-wrap:wrap}
+        .status-pill{display:flex;align-items:center;gap:8px;background:var(--white);padding:8px 16px;border-radius:20px;box-shadow:var(--shadow);font-size:.85rem;font-weight:500}
+        .dot{width:8px;height:8px;border-radius:50%}
+        .dot.ok{background:var(--mint)}
+        .dot.warn{background:#e07060}
+        .stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;margin-bottom:32px}
+        .stat-card{background:var(--white);border-radius:16px;padding:20px;box-shadow:var(--shadow);text-align:center}
+        .stat-card .num{font-family:'Playfair Display',serif;font-size:2.2rem;color:var(--leaf);font-weight:700}
+        .stat-card .label{font-size:.85rem;color:var(--muted);margin-top:4px}
+        .tables{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+        .table-card{background:var(--white);border-radius:16px;padding:20px;box-shadow:var(--shadow)}
+        .table-card h3{font-size:1rem;color:var(--forest);margin-bottom:14px;display:flex;align-items:center;gap:8px}
+        .table-card h3 i{color:var(--mint)}
+        .row{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid var(--parchment);font-size:.88rem}
+        .row:last-child{border-bottom:none}
+        .row .name{color:var(--ink)}
+        .row .count{background:var(--parchment);color:var(--leaf);font-weight:600;padding:2px 10px;border-radius:12px;font-size:.78rem}
+        .empty{color:var(--muted);font-size:.85rem;font-style:italic;padding:8px 0}
+        .back-link{display:inline-block;margin-top:28px;color:var(--leaf);font-size:.85rem;text-decoration:none}
+        .back-link:hover{text-decoration:underline}
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <h1>🌿 Herbal Guy AI — Admin Dashboard</h1>
+    <p class="subtitle">Live usage statistics for this deployment</p>
+
+    <div class="status-row">
+        <div class="status-pill"><span class="dot {{ 'ok' if model_status == 'Loaded' else 'warn' }}"></span> Plant Model: {{ model_status }}</div>
+        <div class="status-pill"><span class="dot {{ 'ok' if gemini_status == 'Configured' else 'warn' }}"></span> Gemini API: {{ gemini_status }}</div>
+        <div class="status-pill"><span class="dot ok"></span> Herb Database: {{ total_herbs }} entries</div>
+    </div>
+
+    <div class="stat-grid">
+        <div class="stat-card">
+            <div class="num">{{ total_remedy }}</div>
+            <div class="label">Symptom Searches</div>
+        </div>
+        <div class="stat-card">
+            <div class="num">{{ total_plant }}</div>
+            <div class="label">Plant Scans</div>
+        </div>
+        <div class="stat-card">
+            <div class="num">{{ total_skin }}</div>
+            <div class="label">Skin Checks</div>
+        </div>
+        <div class="stat-card">
+            <div class="num">{{ total_remedy + total_plant + total_skin }}</div>
+            <div class="label">Total Interactions</div>
+        </div>
+    </div>
+
+    <div class="tables">
+        <div class="table-card">
+            <h3><i class="fas fa-magnifying-glass"></i> Top Searched Symptoms → Herbs</h3>
+            {% if top_remedies %}
+                {% for name, count in top_remedies %}
+                <div class="row"><span class="name">{{ name }}</span><span class="count">{{ count }}</span></div>
+                {% endfor %}
+            {% else %}
+                <div class="empty">No searches yet</div>
+            {% endif %}
+        </div>
+
+        <div class="table-card">
+            <h3><i class="fas fa-camera"></i> Top Identified Plants</h3>
+            {% if top_plants %}
+                {% for name, count in top_plants %}
+                <div class="row"><span class="name">{{ name }}</span><span class="count">{{ count }}</span></div>
+                {% endfor %}
+            {% else %}
+                <div class="empty">No scans yet</div>
+            {% endif %}
+        </div>
+
+        <div class="table-card">
+            <h3><i class="fas fa-hand-dots"></i> Top Skin Conditions Detected</h3>
+            {% if top_skin %}
+                {% for name, count in top_skin %}
+                <div class="row"><span class="name">{{ name }}</span><span class="count">{{ count }}</span></div>
+                {% endfor %}
+            {% else %}
+                <div class="empty">No skin checks yet</div>
+            {% endif %}
+        </div>
+    </div>
+
+    <a href="/" class="back-link"><i class="fas fa-arrow-left"></i> Back to App</a>
+</div>
+</body>
+</html>

@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title>Herbal Guy AI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<!-- WELCOME SCREEN -->
+<div id="welcome-screen">
+    <div class="welcome-bg-circles"><span></ span><span></span><span></span></div>
+    <div id="particle-field"></div>
+    <div class="welcome-inner">
+        <div class="welcome-emblem">
+            <div class="emblem-ring"></div>
+            <div class="emblem-icon">🌿</div>
+        </div>
+        <h1 class="welcome-title">Herbal Guy <em>AI</em></h1>
+        <p class="welcome-sub">Ancient remedies. Modern intelligence.</p>
+        <button class="btn-start" id="btnStart">Begin Your Journey</button>
+        <p class="welcome-disclaimer">⚕ For informational use only — always consult a physician</p>
+    </div>
+</div>
+
+<!-- MAIN APP -->
+<div class="app-shell" id="appShell">
+
+    <header class="app-header">
+        <div class="header-logo">
+            <svg class="logo-svg" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="18" cy="18" r="17" stroke="#52b788" stroke-width="1.5"/>
+                <path d="M18 28 C18 28 10 22 10 15 C10 10 14 7 18 7 C22 7 26 10 26 15 C26 22 18 28 18 28Z" fill="#2d6a4f"/>
+                <path d="M18 28 C18 28 18 18 14 13" stroke="#95d5b2" stroke-width="1.2" stroke-linecap="round"/>
+                <path d="M18 28 C18 28 18 20 22 15" stroke="#95d5b2" stroke-width="1.2" stroke-linecap="round"/>
+            </svg>
+            <span class="logo-text">HERBAL GUY</span>
+        </div>
+        <div class="lang-toggle">
+            <button class="lang-btn active" id="btnEN" onclick="setLang('en')">EN</button>
+            <button class="lang-btn" id="btnUR" onclick="setLang('ur')">اردو</button>
+        </div>
+    </header>
+
+    <nav class="tab-nav">
+        <button class="tab-btn active" id="tab-remedy" onclick="switchTab('remedy')">
+            <i class="fas fa-leaf"></i>
+            <span id="tabRemedyLabel">Remedy</span>
+        </button>
+        <button class="tab-btn" id="tab-scan" onclick="switchTab('scan')">
+            <i class="fas fa-camera"></i>
+            <span id="tabScanLabel">Plant Scan</span>
+        </button>
+        <button class="tab-btn" id="tab-skin" onclick="switchTab('skin')">
+            <i class="fas fa-hand-dots"></i>
+            <span id="tabSkinLabel">Skin Check</span>
+        </button>
+    </nav>
+
+    <!-- TAB: REMEDY -->
+    <div class="tab-content active" id="page-remedy">
+        <section class="hero-section">
+            <div class="hero-text">
+                <h2 id="heroTitle">What are you <em>feeling?</em></h2>
+                <p id="heroSub">Describe your symptom and find a herbal remedy.</p>
+            </div>
+            <div class="search-wrap">
+                <div class="search-box">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" id="symptomInput"
+                        placeholder="e.g. headache, joint pain, cough…"
+                        autocomplete="off" spellcheck="false">
+                    <button class="mic-btn" id="micBtn" onclick="startListening()" title="Voice input">
+                        <i class="fas fa-microphone" id="micIcon"></i>
+                    </button>
+                </div>
+                <div id="inputError" class="input-error"></div>
+            </div>
+            <button class="btn-remedy" id="btnRemedy" onclick="getRemedy()">
+                <span id="btnRemedyText">Find Remedy</span>
+                <i class="fas fa-arrow-right"></i>
+            </button>
+        </section>
+
+        <section class="history-section" id="historySection" style="display:none">
+            <div class="history-header">
+                <span><i class="fas fa-clock-rotate-left"></i> <span id="historyLabel">Recent Searches</span></span>
+                <button class="history-clear" onclick="clearHistory()" id="clearLabel">Clear</button>
+            </div>
+            <div class="history-list" id="historyList"></div>
+        </section>
+
+        <section class="result-section" id="resultSection" style="display:none">
+            <div class="result-card">
+                <div class="result-header">
+                    <div class="result-leaf-icon">🌱</div>
+                    <div class="result-titles">
+                        <h3 id="resHerb"></h3>
+                        <span id="resLocalName" class="result-local"></span>
+                        <span id="resUrduName" class="result-urdu" style="display:none"></span>
+                    </div>
+                    <div id="resConfBadge" class="conf-badge" style="display:none">
+                        <span id="resConf"></span>
+                    </div>
+                </div>
+                <div class="result-tag-row">
+                    <span class="result-tag" id="resDiseaseType"></span>
+                </div>
+                <div class="result-body">
+                    <div class="result-block">
+                        <div class="result-block-label"><i class="fas fa-flask"></i> <span id="recipeLabel">Recipe</span></div>
+                        <p id="resRecipe"></p>
+                    </div>
+                    <div class="result-block">
+                        <div class="result-block-label"><i class="fas fa-heart"></i> <span id="benefitLabel">Benefit</span></div>
+                        <p id="resBenefit"></p>
+                    </div>
+                </div>
+                <div class="result-actions">
+                    <button class="btn-listen" onclick="speakResult()">
+                        <i class="fas fa-volume-up" id="speakIcon"></i>
+                        <span id="speakLabel">Listen</span>
+                    </button>
+                    <button class="btn-save" onclick="saveToHistory()">
+                        <i class="fas fa-bookmark"></i>
+                        <span id="saveLabel">Save</span>
+                    </button>
+                    <button class="btn-reset" onclick="resetRemedy()">
+                        <i class="fas fa-redo"></i>
+                        <span id="resetLabel">New Search</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- TAB: PLANT SCAN -->
+    <div class="tab-content" id="page-scan">
+        <section class="scan-page-section">
+            <div class="scan-hero-text">
+                <h2 id="scanHeroTitle">Identify a <em>Plant</em></h2>
+                <p id="scanHeroSub">Upload a clear photo of a plant leaf for AI identification.</p>
+            </div>
+            <div class="upload-zone" id="plantUploadZone" onclick="document.getElementById('plantFileInput').click()">
+                <div class="upload-zone-inner">
+                    <div class="upload-icon-wrap">
+                        <div class="scan-rings"><span></span><span></span><span></span></div>
+                        <i class="fas fa-camera upload-cam"></i>
+                    </div>
+                    <strong id="plantUploadTitle">Tap to upload leaf photo</strong>
+                    <span id="plantUploadSub">PNG, JPG or WEBP supported</span>
+                </div>
+            </div>
+            <input type="file" id="plantFileInput" hidden
+                   accept="image/png,image/jpeg,image/jpg,image/webp"
+                   onchange="handlePlantUpload(event)">
+
+            <div class="preview-section" id="plantPreviewSection" style="display:none">
+                <div class="preview-wrap">
+                    <img id="plantPreviewImg" src="" alt="Plant leaf">
+                    <div class="preview-overlay" id="plantPreviewOverlay">
+                        <div class="scan-loader">
+                            <div class="loader-ring"></div>
+                            <span id="plantAnalysingText">Identifying plant…</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="plantError" class="input-error" style="margin:0 20px"></div>
+
+            <section class="result-section" id="plantResultSection" style="display:none">
+                <div class="result-card">
+                    <div class="result-header">
+                        <div class="result-leaf-icon">🌿</div>
+                        <div class="result-titles">
+                            <h3 id="plantResHerb"></h3>
+                            <span id="plantResLocal" class="result-local"></span>
+                            <span id="plantResUrdu" class="result-urdu" style="display:none"></span>
+                        </div>
+                        <div class="conf-badge" id="plantConfBadge" style="display:none">
+                            <span id="plantConf"></span>
+                        </div>
+                    </div>
+                    <div class="result-tag-row">
+                        <span class="result-tag" id="plantDiseaseType"></span>
+                    </div>
+                    <div class="result-body">
+                        <div class="result-block">
+                            <div class="result-block-label"><i class="fas fa-flask"></i> <span id="plantRecipeLabel">Recipe</span></div>
+                            <p id="plantResRecipe"></p>
+                        </div>
+                        <div class="result-block">
+                            <div class="result-block-label"><i class="fas fa-heart"></i> <span id="plantBenefitLabel">Benefit</span></div>
+                            <p id="plantResBenefit"></p>
+                        </div>
+                    </div>
+                    <div class="result-actions">
+                        <button class="btn-listen" onclick="speakPlantResult()">
+                            <i class="fas fa-volume-up" id="plantSpeakIcon"></i>
+                            <span id="plantSpeakLabel">Listen</span>
+                        </button>
+                        <button class="btn-reset" onclick="resetPlantScan()">
+                            <i class="fas fa-redo"></i>
+                            <span>Scan Again</span>
+                        </button>
+                    </div>
+                </div>
+            </section>
+        </section>
+    </div>
+
+    <!-- TAB: SKIN CHECK -->
+    <div class="tab-content" id="page-skin">
+        <section class="skin-page-section">
+            <div class="skin-hero-text">
+                <h2 id="skinHeroTitle">Skin <em>Analysis</em></h2>
+                <p id="skinHeroSub">Upload a photo of your skin condition. AI will identify it and suggest herbal remedies.</p>
+            </div>
+
+            <div class="skin-disclaimer-banner">
+                <i class="fas fa-shield-heart"></i>
+                <span id="skinDisclaimerText">AI-powered analysis. Always consult a doctor for serious conditions.</span>
+            </div>
+
+            <div class="upload-zone skin-upload-zone" onclick="document.getElementById('skinFileInput').click()">
+                <div class="upload-zone-inner">
+                    <div class="upload-icon-wrap skin-icon-wrap">
+                        <i class="fas fa-hand-dots skin-upload-icon"></i>
+                    </div>
+                    <strong id="skinUploadTitle">Tap to upload skin photo</strong>
+                    <span id="skinUploadSub">Clear, well-lit photo gives best results</span>
+                </div>
+            </div>
+            <input type="file" id="skinFileInput" hidden
+                   accept="image/png,image/jpeg,image/jpg,image/webp"
+                   onchange="handleSkinUpload(event)">
+
+            <div class="preview-section" id="skinPreviewSection" style="display:none">
+                <div class="preview-wrap">
+                    <img id="skinPreviewImg" src="" alt="Skin photo">
+                    <div class="preview-overlay" id="skinPreviewOverlay">
+                        <div class="scan-loader">
+                            <div class="loader-ring skin-loader-ring"></div>
+                            <span id="skinAnalysingText">Analysing skin condition…</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="skinError" class="input-error" style="margin:0 20px"></div>
+
+            <section class="skin-result-section" id="skinResultSection" style="display:none">
+                <div class="skin-result-card">
+                    <div class="skin-result-header">
+                        <div class="skin-condition-icon">🩺</div>
+                        <div class="skin-condition-info">
+                            <h3 id="skinCondition"></h3>
+                            <span id="skinConditionUr" class="skin-condition-ur" style="display:none"></span>
+                        </div>
+                        <div class="severity-badge" id="severityBadge">
+                            <span id="severityText"></span>
+                        </div>
+                    </div>
+
+                    <div class="skin-block">
+                        <div class="skin-block-label"><i class="fas fa-circle-info"></i> <span id="skinAboutLabel">About this condition</span></div>
+                        <p id="skinDescription"></p>
+                    </div>
+
+                    <div class="skin-block">
+                        <div class="skin-block-label"><i class="fas fa-list-check"></i> <span id="skinSymptomsLabel">Symptoms</span></div>
+                        <ul class="skin-symptom-list" id="skinSymptomList"></ul>
+                    </div>
+
+                    <div class="skin-block">
+                        <div class="skin-block-label"><i class="fas fa-leaf"></i> <span id="skinRemediesLabel">Herbal Remedies</span></div>
+                        <div class="skin-remedies-list" id="skinRemediesList"></div>
+                    </div>
+
+                    <div class="skin-block" id="recoveryBlock" style="display:none">
+                        <div class="skin-block-label"><i class="fas fa-clock"></i> <span id="skinRecoveryLabel">Expected Recovery</span></div>
+                        <p id="skinRecovery"></p>
+                    </div>
+
+                    <div class="skin-do-dont">
+                        <div class="do-block">
+                            <div class="do-header"><i class="fas fa-check-circle"></i> <span id="skinDoLabel">Do</span></div>
+                            <ul id="skinDoList"></ul>
+                        </div>
+                        <div class="dont-block">
+                            <div class="dont-header"><i class="fas fa-times-circle"></i> <span id="skinDontLabel">Don't</span></div>
+                            <ul id="skinDontList"></ul>
+                        </div>
+                    </div>
+
+                    <div class="doctor-warning" id="doctorWarning" style="display:none">
+                        <i class="fas fa-triangle-exclamation"></i>
+                        <span id="doctorWarningText">This condition may require professional medical attention. Please consult a doctor.</span>
+                    </div>
+
+                    <div class="result-actions" style="padding:16px 20px 20px">
+                        <button class="btn-listen" onclick="speakSkinResult()">
+                            <i class="fas fa-volume-up" id="skinSpeakIcon"></i>
+                            <span id="skinSpeakLabel">Listen</span>
+                        </button>
+                        <button class="btn-reset" onclick="resetSkinCheck()" style="grid-column:span 2">
+                            <i class="fas fa-redo"></i>
+                            <span id="skinNewLabel">Check Another</span>
+                        </button>
+                    </div>
+                </div>
+            </section>
+        </section>
+    </div>
+
+    <footer class="app-footer">
+        <p>🌿 Herbal Guy AI &nbsp;·&nbsp; <span id="footerText">Not a substitute for medical advice</span></p>
+    </footer>
+</div>
+
+<script>
+// ═══════════ STATE ═══════════
+let currentLang     = 'en';
+let currentData     = null;
+let currentSkinData = null;
+let currentPlantData= null;
+let isSpeaking      = false;
+let isListening     = false;
+
+// ═══════════ STRINGS ═══════════
+const STRINGS = {
+    en: {
+        heroTitle:'What are you <em>feeling?</em>',
+        heroSub:'Describe your symptom and find a herbal remedy.',
+        btnRemedy:'Find Remedy', history:'Recent Searches', clear:'Clear',
+        recipe:'Recipe', benefit:'Benefit', listen:'Listen', stop:'Stop',
+        save:'Save', newSearch:'New Search',
+        footer:'Not a substitute for medical advice',
+        placeholder:'e.g. headache, joint pain, cough…',
+        tabRemedy:'Remedy', tabScan:'Plant Scan', tabSkin:'Skin Check',
+        scanHeroTitle:'Identify a <em>Plant</em>',
+        scanHeroSub:'Upload a clear photo of a plant leaf for AI identification.',
+        plantUploadTitle:'Tap to upload leaf photo',
+        plantUploadSub:'PNG, JPG or WEBP supported',
+        plantAnalysing:'Identifying plant…',
+        plantRecipe:'Recipe', plantBenefit:'Benefit',
+        skinHeroTitle:'Skin <em>Analysis</em>',
+        skinHeroSub:'Upload a photo of your skin condition. AI will identify it and suggest herbal remedies.',
+        skinDisclaimer:'AI-powered analysis. Always consult a doctor for serious conditions.',
+        skinUploadTitle:'Tap to upload skin photo',
+        skinUploadSub:'Clear, well-lit photo gives best results',
+        skinAnalysing:'Analysing skin condition…',
+        skinAbout:'About this condition', skinSymptoms:'Symptoms',
+        skinRemedies:'Herbal Remedies', skinRecovery:'Expected Recovery',
+        skinDo:'Do', skinDont:"Don't", skinListen:'Listen', skinNew:'Check Another',
+        doctorWarning:'This condition may require professional medical attention. Please consult a doctor.',
+        errEmpty:'Please describe a symptom first.',
+        errNetwork:'Network error. Please try again.',
+        errScan:'Scan failed. Please try again.',
+        errFile:'Invalid file. Please upload PNG, JPG, or WEBP.',
+        errSkin:'Skin analysis failed. Please try again.',
+    },
+    ur: {
+        heroTitle:'آپ کیا <em>محسوس کر رہے ہیں؟</em>',
+        heroSub:'نیچے علامت بیان کریں اور جڑی بوٹی کا علاج تلاش کریں۔',
+        btnRemedy:'علاج تلاش کریں', history:'حالیہ تلاش', clear:'صاف کریں',
+        recipe:'نسخہ', benefit:'فائدہ', listen:'سنیں', stop:'روکیں',
+        save:'محفوظ کریں', newSearch:'نئی تلاش',
+        footer:'یہ طبی مشورے کا متبادل نہیں',
+        placeholder:'مثلاً سر درد، جوڑوں کا درد، کھانسی…',
+        tabRemedy:'علاج', tabScan:'پودا اسکین', tabSkin:'جلد چیک',
+        scanHeroTitle:'پودا <em>پہچانیں</em>',
+        scanHeroSub:'AI پہچان کے لیے پودے کے پتے کی واضح تصویر اپلوڈ کریں۔',
+        plantUploadTitle:'پتے کی تصویر اپلوڈ کریں',
+        plantUploadSub:'PNG، JPG یا WEBP سپورٹ ہے',
+        plantAnalysing:'پودا پہچانا جا رہا ہے…',
+        plantRecipe:'نسخہ', plantBenefit:'فائدہ',
+        skinHeroTitle:'جلد کا <em>تجزیہ</em>',
+        skinHeroSub:'جلد کی بیماری کی تصویر اپلوڈ کریں۔ AI پہچان کر جڑی بوٹی کا علاج بتائے گا۔',
+        skinDisclaimer:'AI تجزیہ۔ سنگین حالت میں ڈاکٹر سے ضرور ملیں۔',
+        skinUploadTitle:'جلد کی تصویر اپلوڈ کریں',
+        skinUploadSub:'روشنی میں لی گئی واضح تصویر بہترین نتیجہ دیتی ہے',
+        skinAnalysing:'جلد کی حالت کا تجزیہ ہو رہا ہے…',
+        skinAbout:'اس بیماری کے بارے میں', skinSymptoms:'علامات',
+        skinRemedies:'جڑی بوٹی علاج', skinRecovery:'صحت یابی کا وقت',
+        skinDo:'کریں', skinDont:'نہ کریں', skinListen:'سنیں', skinNew:'دوسری تصویر چیک کریں',
+        doctorWarning:'اس حالت کے لیے طبی توجہ ضروری ہو سکتی ہے۔ براہ کرم ڈاکٹر سے ملیں۔',
+        errEmpty:'براہ کرم پہلے علامت بیان کریں۔',
+        errNetwork:'نیٹ ورک خرابی۔ دوبارہ کوشش کریں۔',
+        errScan:'اسکین ناکام۔ دوبارہ کوشش کریں۔',
+        errFile:'غلط فائل۔ PNG، JPG یا WEBP اپلوڈ کریں۔',
+        errSkin:'جلد تجزیہ ناکام۔ دوبارہ کوشش کریں۔',
+    }
+};
+function S() { return STRINGS[currentLang]; }
+
+// ═══════════ LANGUAGE ═══════════
+function setLang(lang) {
+    currentLang = lang;
+    const s = S();
+    const set = (id, val) => { const el = document.getElementById(id); if(el) el.textContent = val; };
+    const setHTML = (id, val) => { const el = document.getElementById(id); if(el) el.innerHTML = val; };
+    setHTML('heroTitle', s.heroTitle);
+    set('heroSub', s.heroSub);
+    set('btnRemedyText', s.btnRemedy);
+    set('historyLabel', s.history);
+    set('clearLabel', s.clear);
+    set('recipeLabel', s.recipe);
+    set('benefitLabel', s.benefit);
+    set('speakLabel', s.listen);
+    set('saveLabel', s.save);
+    set('resetLabel', s.newSearch);
+    set('footerText', s.footer);
+    const inp = document.getElementById('symptomInput');
+    if (inp) inp.placeholder = s.placeholder;
+    set('tabRemedyLabel', s.tabRemedy);
+    set('tabScanLabel', s.tabScan);
+    set('tabSkinLabel', s.tabSkin);
+    setHTML('scanHeroTitle', s.scanHeroTitle);
+    set('scanHeroSub', s.scanHeroSub);
+    set('plantUploadTitle', s.plantUploadTitle);
+    set('plantUploadSub', s.plantUploadSub);
+    set('plantAnalysingText', s.plantAnalysing);
+    set('plantRecipeLabel', s.plantRecipe);
+    set('plantBenefitLabel', s.plantBenefit);
+    setHTML('skinHeroTitle', s.skinHeroTitle);
+    set('skinHeroSub', s.skinHeroSub);
+    set('skinDisclaimerText', s.skinDisclaimer);
+    set('skinUploadTitle', s.skinUploadTitle);
+    set('skinUploadSub', s.skinUploadSub);
+    set('skinAnalysingText', s.skinAnalysing);
+    set('skinAboutLabel', s.skinAbout);
+    set('skinSymptomsLabel', s.skinSymptoms);
+    set('skinRemediesLabel', s.skinRemedies);
+    set('skinRecoveryLabel', s.skinRecovery);
+    set('skinDoLabel', s.skinDo);
+    set('skinDontLabel', s.skinDont);
+    set('skinSpeakLabel', s.skinListen);
+    set('skinNewLabel', s.skinNew);
+    set('doctorWarningText', s.doctorWarning);
+    document.getElementById('btnEN').classList.toggle('active', lang === 'en');
+    document.getElementById('btnUR').classList.toggle('active', lang === 'ur');
+    // Only flip tab content, NOT the header/nav buttons
+    document.querySelectorAll('.tab-content').forEach(el => el.classList.toggle('rtl', lang === 'ur'));
+    if (currentData)     refreshHerbResult();
+    if (currentSkinData) renderSkinResult(currentSkinData);
+    if (currentPlantData) renderPlantResult(currentPlantData);
+}
+
+// ═══════════ TABS ═══════════
+function switchTab(tab) {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+    document.getElementById('tab-' + tab).classList.add('active');
+    document.getElementById('page-' + tab).classList.add('active');
+    stopSpeaking();
+}
+
+// ═══════════ WELCOME ═══════════
+(function spawnParticles() {
+    const field = document.getElementById('particle-field');
+    for (let i = 0; i < 18; i++) {
+        const p = document.createElement('div');
+        p.className = 'particle';
+        p.innerText = ['🌿','🍃','🌱','✦','◦'][Math.floor(Math.random()*5)];
+        p.style.cssText = `left:${Math.random()*100}%;top:${Math.random()*100}%;
+            animation-delay:${Math.random()*6}s;animation-duration:${6+Math.random()*8}s;
+            font-size:${10+Math.random()*14}px;opacity:${0.2+Math.random()*0.4};`;
+        field.appendChild(p);
+    }
+})();
+
+document.getElementById('btnStart').addEventListener('click', () => {
+    const ws = document.getElementById('welcome-screen');
+    ws.classList.add('fade-out');
+    setTimeout(() => {
+        ws.style.display = 'none';
+        document.getElementById('appShell').classList.add('visible');
+        renderHistory();
+    }, 700);
+});
+
+// ═══════════ HELPERS ═══════════
+function showError(id, msg) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.textContent = msg;
+    el.classList.add('show');
+    setTimeout(() => el.classList.remove('show'), 5000);
+}
+function clearErr(id) {
+    const el = document.getElementById(id);
+    if (el) el.classList.remove('show');
+}
+function setLoadingBtn(btnId, state, html) {
+    const btn = document.getElementById(btnId);
+    if (!btn) return;
+    btn.disabled = state;
+    if (html) btn.innerHTML = html;
+    else if (state) btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i><span>…</span>';
+}
+
+// ═══════════ REMEDY TAB ═══════════
+function getRemedy() {
+    const input = document.getElementById('symptomInput');
+    const symptom = input.value.trim();
+    if (!symptom) { showError('inputError', S().errEmpty); input.focus(); return; }
+    clearErr('inputError');
+    setLoadingBtn('btnRemedy', true);
+    document.getElementById('resultSection').style.display = 'none';
+    document.getElementById('resultSection').classList.remove('visible');
+
+    fetch('/get_remedy', {
+        method: 'POST',
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify({symptom})
+    })
+    .then(r => r.json())
+    .then(data => {
+        setLoadingBtn('btnRemedy', false, `<span id="btnRemedyText">${S().btnRemedy}</span><i class="fas fa-arrow-right"></i>`);
+        if (data.error) { showError('inputError', data.error); return; }
+        currentData = data;
+        refreshHerbResult();
+    })
+    .catch(() => {
+        setLoadingBtn('btnRemedy', false, `<span id="btnRemedyText">${S().btnRemedy}</span><i class="fas fa-arrow-right"></i>`);
+        showError('inputError', S().errNetwork);
+    });
+}
+
+function refreshHerbResult() {
+    const d = currentData; if (!d) return;
+    const isUR = currentLang === 'ur';
+    document.getElementById('resHerb').textContent        = d.herb         || 'Unknown';
+    document.getElementById('resLocalName').textContent   = d.local_name   || '';
+    document.getElementById('resDiseaseType').textContent = d.disease_type || '';
+    document.getElementById('resRecipe').textContent  = (isUR && d.recipe_ur)  ? d.recipe_ur  : (d.recipe  || 'N/A');
+    document.getElementById('resBenefit').textContent = (isUR && d.benefit_ur) ? d.benefit_ur : (d.benefit || 'N/A');
+    const urduEl = document.getElementById('resUrduName');
+    if (d.urdu_name && isUR) { urduEl.textContent = d.urdu_name; urduEl.style.display = 'block'; }
+    else { urduEl.style.display = 'none'; }
+    const badge = document.getElementById('resConfBadge');
+    if (d.confidence !== undefined) {
+        document.getElementById('resConf').textContent = d.confidence + '%';
+        badge.style.display = 'flex';
+        badge.className = 'conf-badge ' + (d.confidence >= 75 ? 'conf-high' : d.confidence >= 50 ? 'conf-mid' : 'conf-low');
+    } else { badge.style.display = 'none'; }
+    const sec = document.getElementById('resultSection');
+    sec.style.display = 'block';
+    requestAnimationFrame(() => { sec.classList.add('visible'); sec.scrollIntoView({behavior:'smooth',block:'nearest'}); });
+}
+
+document.getElementById('symptomInput').addEventListener('keydown', e => { if (e.key === 'Enter') getRemedy(); });
+
+function resetRemedy() {
+    currentData = null; stopSpeaking();
+    document.getElementById('symptomInput').value = '';
+    document.getElementById('resultSection').style.display = 'none';
+    document.getElementById('resultSection').classList.remove('visible');
+    clearErr('inputError');
+    window.scrollTo({top:0, behavior:'smooth'});
+}
+
+// ═══════════ PLANT SCAN TAB ═══════════
+function handlePlantUpload(event) {
+    const file = event.target.files[0]; if (!file) return;
+    if (!['image/png','image/jpeg','image/jpg','image/webp'].includes(file.type)) {
+        showError('plantError', S().errFile); return;
+    }
+    const reader = new FileReader();
+    reader.onload = e => {
+        document.getElementById('plantPreviewImg').src = e.target.result;
+        document.getElementById('plantPreviewSection').style.display = 'block';
+        document.getElementById('plantPreviewOverlay').style.display = 'flex';
+        document.getElementById('plantResultSection').style.display = 'none';
+        document.getElementById('plantResultSection').classList.remove('visible');
+        document.getElementById('plantPreviewSection').scrollIntoView({behavior:'smooth'});
+    };
+    reader.readAsDataURL(file);
+    clearErr('plantError');
+    const fd = new FormData(); fd.append('file', file);
+    fetch('/predict', {method:'POST', body:fd})
+    .then(r => r.json())
+    .then(data => {
+        document.getElementById('plantPreviewOverlay').style.display = 'none';
+        if (data.error) { showError('plantError', data.error); return; }
+        currentPlantData = data;
+        renderPlantResult(data);
+    })
+    .catch(() => {
+        document.getElementById('plantPreviewOverlay').style.display = 'none';
+        showError('plantError', S().errScan);
+    });
+}
+
+function renderPlantResult(d) {
+    const isUR = currentLang === 'ur';
+    document.getElementById('plantResHerb').textContent     = d.herb         || 'Unknown';
+    document.getElementById('plantResLocal').textContent    = d.local_name   || '';
+    document.getElementById('plantDiseaseType').textContent = d.disease_type || '';
+    document.getElementById('plantResRecipe').textContent   = (isUR && d.recipe_ur)  ? d.recipe_ur  : (d.recipe  || 'N/A');
+    document.getElementById('plantResBenefit').textContent  = (isUR && d.benefit_ur) ? d.benefit_ur : (d.benefit || 'N/A');
+    const urduEl = document.getElementById('plantResUrdu');
+    if (d.urdu_name && isUR) { urduEl.textContent = d.urdu_name; urduEl.style.display = 'block'; }
+    else { urduEl.style.display = 'none'; }
+    const badge = document.getElementById('plantConfBadge');
+    if (d.confidence !== undefined) {
+        document.getElementById('plantConf').textContent = d.confidence + '%';
+        badge.style.display = 'flex';
+        badge.className = 'conf-badge ' + (d.confidence >= 75 ? 'conf-high' : d.confidence >= 50 ? 'conf-mid' : 'conf-low');
+    } else { badge.style.display = 'none'; }
+    const sec = document.getElementById('plantResultSection');
+    sec.style.display = 'block';
+    requestAnimationFrame(() => { sec.classList.add('visible'); sec.scrollIntoView({behavior:'smooth',block:'nearest'}); });
+}
+
+function resetPlantScan() {
+    currentPlantData = null; stopSpeaking();
+    document.getElementById('plantPreviewSection').style.display = 'none';
+    document.getElementById('plantResultSection').style.display  = 'none';
+    document.getElementById('plantResultSection').classList.remove('visible');
+    document.getElementById('plantFileInput').value = '';
+    clearErr('plantError');
+}
+
+// ═══════════ SKIN CHECK TAB ═══════════
+function handleSkinUpload(event) {
+    const file = event.target.files[0]; if (!file) return;
+    if (!['image/png','image/jpeg','image/jpg','image/webp'].includes(file.type)) {
+        showError('skinError', S().errFile); return;
+    }
+    const reader = new FileReader();
+    reader.onload = e => {
+        document.getElementById('skinPreviewImg').src = e.target.result;
+        document.getElementById('skinPreviewSection').style.display = 'block';
+        document.getElementById('skinPreviewOverlay').style.display = 'flex';
+        document.getElementById('skinResultSection').style.display  = 'none';
+        document.getElementById('skinResultSection').classList.remove('visible');
+        document.getElementById('skinPreviewSection').scrollIntoView({behavior:'smooth'});
+    };
+    reader.readAsDataURL(file);
+    clearErr('skinError');
+    const fd = new FormData();
+    fd.append('file', file);
+    fd.append('lang', currentLang);
+
+    // Both route names work in app.py — using /skin_check
+    fetch('/skin_check', {method:'POST', body:fd})
+    .then(r => r.json())
+    .then(data => {
+        document.getElementById('skinPreviewOverlay').style.display = 'none';
+        if (data.error) { showError('skinError', data.error); return; }
+        if (data.not_skin) {
+            showError('skinError', 'This does not appear to be a skin condition. Please upload a clear skin photo.');
+            return;
+        }
+        currentSkinData = data;
+        renderSkinResult(data);
+    })
+    .catch(() => {
+        document.getElementById('skinPreviewOverlay').style.display = 'none';
+        showError('skinError', S().errSkin);
+    });
+}
+
+function renderSkinResult(d) {
+    if (!d) return;
+    const isUR = currentLang === 'ur';
+
+    // Condition name
+    document.getElementById('skinCondition').textContent = d.condition || 'Skin Analysis';
+    const condUrEl = document.getElementById('skinConditionUr');
+    if (d.condition_ur && isUR) { condUrEl.textContent = d.condition_ur; condUrEl.style.display = 'block'; }
+    else { condUrEl.style.display = 'none'; }
+
+    // Severity badge
+    const sev = (d.severity || 'Mild');
+    const sevEl = document.getElementById('severityBadge');
+    document.getElementById('severityText').textContent = isUR ? (d.severity_ur || sev) : sev;
+    sevEl.className = 'severity-badge sev-' + sev.toLowerCase();
+
+    // Description
+    document.getElementById('skinDescription').textContent =
+        (isUR && d.description_ur) ? d.description_ur : (d.description || '');
+
+    // Symptoms list
+    const syms = (isUR && d.symptoms_ur && d.symptoms_ur.length) ? d.symptoms_ur : (d.symptoms || []);
+    document.getElementById('skinSymptomList').innerHTML =
+        syms.map(s => `<li><i class="fas fa-circle-dot"></i> ${s}</li>`).join('');
+
+    // Herbal remedies
+    const remedies = d.herbal_remedies || [];
+    document.getElementById('skinRemediesList').innerHTML = remedies.map(r => `
+        <div class="skin-remedy-item">
+            <div class="skin-remedy-header">
+                <span class="skin-remedy-herb">🌿 ${r.herb || ''}</span>
+                ${(r.herb_ur && isUR) ? `<span class="skin-remedy-herb-ur">${r.herb_ur}</span>` : ''}
+            </div>
+            <div class="skin-remedy-how">
+                <strong>How to use:</strong>
+                <p>${(isUR && r.how_to_use_ur) ? r.how_to_use_ur : (r.how_to_use || 'N/A')}</p>
+            </div>
+            <div class="skin-remedy-benefit">
+                <i class="fas fa-circle-check"></i> ${r.benefit || ''}
+            </div>
+        </div>`).join('');
+
+    // Expected recovery
+    const recovEl = document.getElementById('skinRecovery');
+    const recov   = (isUR && d.expected_recovery_ur) ? d.expected_recovery_ur : (d.expected_recovery || '');
+    if (recov) {
+        recovEl.textContent = recov;
+        document.getElementById('recoveryBlock').style.display = 'block';
+    } else {
+        document.getElementById('recoveryBlock').style.display = 'none';
+    }
+
+    // Do list
+    const doItems = (isUR && d.do_list_ur && d.do_list_ur.length) ? d.do_list_ur : (d.do_list || []);
+    document.getElementById('skinDoList').innerHTML =
+        doItems.map(i => `<li><i class="fas fa-check"></i> ${i}</li>`).join('');
+
+    // Don't list
+    const dontItems = (isUR && d.dont_list_ur && d.dont_list_ur.length) ? d.dont_list_ur : (d.dont_list || []);
+    document.getElementById('skinDontList').innerHTML =
+        dontItems.map(i => `<li><i class="fas fa-xmark"></i> ${i}</li>`).join('');
+
+    // Doctor warning
+    document.getElementById('doctorWarning').style.display = d.doctor_warning ? 'flex' : 'none';
+
+    const sec = document.getElementById('skinResultSection');
+    sec.style.display = 'block';
+    requestAnimationFrame(() => { sec.classList.add('visible'); sec.scrollIntoView({behavior:'smooth',block:'nearest'}); });
+}
+
+function resetSkinCheck() {
+    currentSkinData = null; stopSpeaking();
+    document.getElementById('skinPreviewSection').style.display = 'none';
+    document.getElementById('skinResultSection').style.display  = 'none';
+    document.getElementById('skinResultSection').classList.remove('visible');
+    document.getElementById('skinFileInput').value = '';
+    clearErr('skinError');
+    window.scrollTo({top:0, behavior:'smooth'});
+}
+
+// ═══════════ VOICE INPUT ═══════════
+function startListening() {
+    const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+    if (!SR) { showError('inputError', 'Voice input not supported in this browser.'); return; }
+    if (isListening) return;
+    isListening = true;
+    const btn  = document.getElementById('micBtn');
+    const icon = document.getElementById('micIcon');
+    btn.classList.add('listening');
+    icon.className = 'fas fa-circle-dot';
+    const rec = new SR();
+    rec.lang = currentLang === 'ur' ? 'ur-PK' : 'en-US';
+    rec.interimResults = false;
+    rec.start();
+    rec.onresult = e => {
+        document.getElementById('symptomInput').value = e.results[0][0].transcript;
+        stopMic(btn, icon);
+        getRemedy();
+    };
+    rec.onerror = e => { stopMic(btn, icon); showError('inputError', 'Mic error: ' + e.error); };
+    rec.onend   = () => stopMic(btn, icon);
+}
+function stopMic(btn, icon) {
+    isListening = false;
+    btn.classList.remove('listening');
+    icon.className = 'fas fa-microphone';
+}
+
+// ═══════════ TEXT TO SPEECH ═══════════
+function speak(text, iconId, labelId, listenStr, stopStr) {
+    if (isSpeaking) { stopSpeaking(); return; }
+    const u = new SpeechSynthesisUtterance(text);
+    u.lang = currentLang === 'ur' ? 'ur-PK' : 'en-US';
+    u.rate = 0.92;
+    u.onstart = () => {
+        isSpeaking = true;
+        document.getElementById(iconId).className = 'fas fa-stop';
+        document.getElementById(labelId).textContent = stopStr;
+    };
+    u.onend = u.onerror = () => {
+        isSpeaking = false;
+        document.getElementById(iconId).className = 'fas fa-volume-up';
+        document.getElementById(labelId).textContent = listenStr;
+    };
+    window.speechSynthesis.speak(u);
+}
+function stopSpeaking() {
+    window.speechSynthesis.cancel();
+    isSpeaking = false;
+}
+
+function speakResult() {
+    if (!currentData) return;
+    const isUR = currentLang === 'ur';
+    const r = (isUR && currentData.recipe_ur)  ? currentData.recipe_ur  : currentData.recipe;
+    const b = (isUR && currentData.benefit_ur) ? currentData.benefit_ur : currentData.benefit;
+    const text = isUR
+        ? `یہ جڑی بوٹی ${currentData.urdu_name || currentData.local_name} ہے۔ فائدہ: ${b}۔ طریقہ: ${r}`
+        : `This herb is ${currentData.herb}, known as ${currentData.local_name}. Benefit: ${b}. Recipe: ${r}`;
+    speak(text, 'speakIcon', 'speakLabel', S().listen, S().stop);
+}
+
+function speakPlantResult() {
+    if (!currentPlantData) return;
+    const d = currentPlantData;
+    const isUR = currentLang === 'ur';
+    const text = isUR
+        ? `یہ پودا ${d.urdu_name || d.local_name} ہے۔ فائدہ: ${d.benefit_ur || d.benefit}`
+        : `This plant is ${d.herb}, known as ${d.local_name}. Benefit: ${d.benefit}`;
+    speak(text, 'plantSpeakIcon', 'plantSpeakLabel', S().listen, S().stop);
+}
+
+function speakSkinResult() {
+    if (!currentSkinData) return;
+    const d = currentSkinData;
+    const isUR = currentLang === 'ur';
+    const desc = (isUR && d.description_ur) ? d.description_ur : d.description;
+    const text = isUR
+        ? `جلد کی حالت: ${d.condition_ur || d.condition}۔ نوعیت: ${d.severity_ur || d.severity}۔ ${desc}`
+        : `Skin condition: ${d.condition}. Severity: ${d.severity}. ${desc}`;
+    speak(text, 'skinSpeakIcon', 'skinSpeakLabel', S().skinListen, S().stop);
+}
+
+// ═══════════ SEARCH HISTORY ═══════════
+function getHistory() {
+    try { return JSON.parse(localStorage.getItem('hg_history') || '[]'); }
+    catch { return []; }
+}
+
+function saveToHistory() {
+    if (!currentData) return;
+    const h = getHistory();
+    h.unshift({...currentData, time: new Date().toLocaleTimeString()});
+    if (h.length > 10) h.pop();
+    localStorage.setItem('hg_history', JSON.stringify(h));
+    renderHistory();
+    const btn = document.querySelector('.btn-save');
+    if (btn) {
+        const orig = btn.innerHTML;
+        btn.innerHTML = '<i class="fas fa-check"></i><span>Saved!</span>';
+        setTimeout(() => { btn.innerHTML = orig; }, 1500);
+    }
+}
+
+function clearHistory() {
+    localStorage.removeItem('hg_history');
+    renderHistory();
+}
+
+function renderHistory() {
+    const h = getHistory();
+    const sec  = document.getElementById('historySection');
+    const list = document.getElementById('historyList');
+    if (!h.length) { sec.style.display = 'none'; return; }
+    sec.style.display = 'block';
+    list.innerHTML = h.map((item, i) => `
+        <div class="history-item" onclick="loadHistory(${i})">
+            <span class="history-herb">🌿 ${item.herb}</span>
+            <span class="history-time">${item.time}</span>
+        </div>`).join('');
+}
+
+function loadHistory(i) {
+    const h = getHistory()[i];
+    if (h) { currentData = h; refreshHerbResult(); }
+}
+</script>
+</body>
+</html>
